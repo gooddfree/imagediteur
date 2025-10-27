@@ -1,22 +1,38 @@
-html
 <!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>تحويل صورة إلى PDF و ZIP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>معالج الصور البسيط</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h2>تحويل صورة إلى PDF وضغطها في ZIP</h2>
-    <input type="file" id="imageInput" accept="image/*" />
-    <button onclick="convertAndZip()">تحويل وتحميل</button>
+    <h1>🖼️ معالج الصور</h1>
+    <input type="file" id="upload" accept="image/*">
+    <canvas id="canvas"></canvas>
+
+    <div class="controls">
+      <label>السطوع:
+        <input type="range" id="brightness" min="0" max="200" value="100">
+      </label>
+      <label>التباين:
+        <input type="range" id="contrast" min="0" max="200" value="100">
+      </label>
+      <label>التشبع:
+        <input type="range" id="saturate" min="0" max="200" value="100">
+      </label>
+      <label>التدرّج الرمادي:
+        <input type="range" id="grayscale" min="0" max="100" value="0">
+      </label>
+      <label>عكس الألوان:
+        <input type="range" id="invert" min="0" max="100" value="0">
+      </label>
+    </div>
+
+    <button id="download">💾 تحميل الصورة المعدلة</button>
   </div>
 
-  <script src="js/jspdf.umd.min.js"></script>
-  <script src="js/jszip.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-
